@@ -84,7 +84,11 @@ def funnel_viz(df):
 
 def compare_funnel(df1, df2, asin1, asin2):
 
+    if len(asin1) > 30:
+        asin1 = asin1[:30] + '...' 
     
+    if len(asin2) > 30:
+        asin2 = asin2[:30] + '...'
     fig = make_subplots(
         rows=1, 
         cols=2,
