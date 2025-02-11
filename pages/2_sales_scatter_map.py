@@ -196,7 +196,7 @@ def get_uk_cities_dataset(file):
     cities['state'] = cities.state.apply(standardize_to_ascii)
     cities['city_state'] = cities.apply(lambda x: f'{x.state.lower()}-{x.city}', axis=1)
 
-    city_filter_words = ['designated place', 'township of', 'town of', 'census', 'township', 'city of', 'county', 'division', 'village of', '\(historical\)']
+    city_filter_words = ['designated place', 'township of', 'town of', 'census', 'township', 'city of', 'county', 'division', 'village of', r'(historical)']
     city_filter_words = '|'.join(city_filter_words)
     cities = cities.copy()
     cities['city'] = cities.city.str.replace(city_filter_words, '', regex=True).str.strip()
@@ -234,7 +234,7 @@ def get_us_cities_dataset(file):
 
     cities = pd.read_parquet(file)
 
-    city_filter_words = ['designated place', 'township of', 'town of', 'census', 'township', 'city of', 'county', 'division', 'village of', '\(historical\)']
+    city_filter_words = ['designated place', 'township of', 'town of', 'census', 'township', 'city of', 'county', 'division', 'village of', r'(historical)']
     city_filter_words = '|'.join(city_filter_words)
     cities = cities.copy()
     cities['city'] = cities.city.str.replace(city_filter_words, '', regex=True).str.strip()
