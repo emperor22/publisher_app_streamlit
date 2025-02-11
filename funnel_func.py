@@ -6,7 +6,7 @@ from plotly.subplots import make_subplots
 import streamlit as st
 
 @st.cache_data
-def df_prepro(path, metadata_file):
+def df_prepro(path):
     
     df = pd.read_parquet(path)
     df = df[['(Parent) ASIN', '(Child) ASIN', 'Title', 'SKU', 'Sessions',
@@ -39,8 +39,8 @@ def df_prepro(path, metadata_file):
     df['units_ordered_others'] = df.buy_box_percentage_others / df.buy_box_percentage * df.units_ordered
     df['total_order_items_others'] = df.buy_box_percentage_others / df.buy_box_percentage * df.total_order_items
     
-    metadata_df = pd.read_parquet(metadata_file)
-    df = df.merge(metadata_df, left_on='parent_asin', right_on='asin')
+    # metadata_df = pd.read_parquet(metadata_file)
+    # df = df.merge(metadata_df, left_on='parent_asin', right_on='asin')
     
     return df.round(2)
 
