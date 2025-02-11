@@ -429,7 +429,7 @@ if show_map and len(filt_date) == 2:
     zoom_map = 2.8 if filt_channel == 'US' else 3.7
     
     center_map = {'center': {'lat': 39.8283, 'lon': -98.5795}} if filt_channel == 'US' else {'center': {'lat': 55.3781, 'lon': -3.4360}}
-    if analyze_in_detail_checkbox:
+    if filt_channel == 'US' and analyze_in_detail_checkbox:
         zoom_map = 5
         center_map = {'center': None}
     if filt_channel == 'US':
