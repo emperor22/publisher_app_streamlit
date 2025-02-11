@@ -1,0 +1,64 @@
+
+GENERAL FILTER:
+publisher, books (asin with links, maybe metadata), date filter
+
+--------------------------------------------------------------
+
+tab 1:
+used score across all books of one publisher
+
+element:
+- radio button to select publisher
+- text box of average used book score
+- top 10 highest, lowest score
+- table explaining the metric
+
+tab 2:
+used score per title
+
+element:
+- radio button to select publisher
+- asin selection (multi select)
+- score of books selected
+- table explaining the metric
+
+---------------------------------------------
+
+
+custom weights, custom scoring for release date gap scoring, custom price fields for ratio (LATER)
+
+
+
+used book score:
+
+
+new/used price ratio scoring:
+100%-149% -> 10
+150%-199% -> 8
+200%-249% -> 6
+250%-299% -> 4
+300%-349% -> 2
+
+>350% -> 0
+
+release date gap scoring (in years):
+0-3 -> 10
+3-4 -> 7.5
+4-5 -> 5
+5-6 -> 2.5
+
+>6 -> 0
+
+weights: release date gap 0.75, price ratio 0.25
+
+
+--------------------------------------------------------------
+
+Sales Location Density Heatmap v1
+
+flow (actual): clickable sales by state / 10 top selling states -> when pressed it filters the state and displays the choropleth
+
+
+note:
+- clean city and state names on both ship city field (orders) and city name (geojson) for better joining (LATER)
+- 
